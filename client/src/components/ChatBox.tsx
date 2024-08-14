@@ -10,35 +10,29 @@ interface Message {
 interface ChatBoxProps {
     messages: Message[];
     onSendMessage: (message: string) => Promise<void>;
-    loading: boolean; // Add loading prop
+    loading: boolean;
 }
 
 const ChatBox: FC<ChatBoxProps> = ({ messages, onSendMessage, loading }) => {
     const [message, setMessage] = useState('');
-    const chatEndRef = useRef<HTMLDivElement | null>(null); // Ref for auto-scrolling
+    const chatEndRef = useRef<HTMLDivElement | null>(null);
 
     const handleSend = () => {
         if (message.trim()) {
-            onSendMessage(message); // Call onSendMessage from props
+            onSendMessage(message);
             setMessage('');
         }
     };
 
     const renderText = (content: string) => {
-        // Use marked to convert Markdown to HTML
         let html = marked(content);
-    
-        // Ensure content is a string before applying replace
         if (typeof html === 'string') {
-            // Replace newlines with <br> for better formatting
             html = html.replace(/\n/g, '<br/>');
         }
-    
         return { __html: html };
     };
 
     useEffect(() => {
-        // Scroll to the bottom of the chat container
         if (chatEndRef.current) {
             chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
         }
@@ -57,7 +51,7 @@ const ChatBox: FC<ChatBoxProps> = ({ messages, onSendMessage, loading }) => {
                         </div>
                     ))
                 ) : (
-                    <div className="flex-1 flex items-center justify-center">
+                    <div className="flex flex-1 items-center justify-center h-full">
                         <p className="text-center text-gray-500">Choose a conversation or add a new one to start.</p>
                     </div>
                 )}
@@ -67,7 +61,7 @@ const ChatBox: FC<ChatBoxProps> = ({ messages, onSendMessage, loading }) => {
                         <p className="mt-2 text-gray-500">Assistant is thinking...</p>
                     </div>
                 )}
-                <div ref={chatEndRef} /> {/* Ref for auto-scrolling */}
+                <div ref={chatEndRef} /> {/* Auto-scroll ref */}
             </div>
             <div className="flex mt-4">
                 <input
@@ -78,7 +72,7 @@ const ChatBox: FC<ChatBoxProps> = ({ messages, onSendMessage, loading }) => {
                     placeholder="Type a message..."
                 />
                 <button
-                    className="p-2 bg-blue-500 text-white rounded-r-lg"
+                    className="p-2 text-white rounded-r-lg bg-blue-500 hover:bg-blue-600 transition"
                     onClick={handleSend}
                 >
                     Send
