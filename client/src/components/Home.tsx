@@ -12,7 +12,7 @@ interface Message {
 interface Conversation {
     id: string;
     title: string;
-    lastMessage: string;
+    created_at: string;
     messages: Message[];
 }
 
@@ -34,10 +34,6 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
         setSelectedConversationId(null);
     };
 
-    const handleQuestionSelect = async (question: string) => {
-        console.log('Question selected:', question);
-    };
-
     const sendMessage = async (message: string) => {
         try {
             const userMessage: Message = { sender: 'user', content: message };
@@ -49,7 +45,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                         ? { ...conv, messages: [...conv.messages, userMessage] }
                         : conv
                 );
-                
+
                 setConversations(updatedConversations);
                 setLoading(true); // Set loading to true
 
@@ -77,6 +73,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                         ? { ...conv, messages: [...conv.messages, assistantMessage] }
                         : conv
                 );
+
                 setConversations(updatedWithResponse);
 
                 await fetch(`http://localhost:8000/api/conversations/${selectedConversationId}/messages`, {
@@ -84,6 +81,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(assistantMessage),
                 });
+
                 setLoading(false); // Set loading to false
             } else {
                 const newConversationResponse = await fetch('http://localhost:8000/api/conversations', {
@@ -93,14 +91,15 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                 });
 
                 const newConversationData = await newConversationResponse.json();
-                setSelectedConversationId(newConversationData.id);
 
                 const updatedConversations = [...conversations, {
                     id: newConversationData.id,
                     title: userMessage.content,
-                    lastMessage: userMessage.content,
+                    created_at: new Date().toISOString(),
                     messages: [userMessage],
                 }];
+
+                handleConversationSelect(newConversationData.id);
                 setConversations(updatedConversations);
                 setLoading(true); // Set loading to true
 
@@ -128,6 +127,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                         ? { ...conv, messages: [...conv.messages, assistantMessage] }
                         : conv
                 );
+
                 setConversations(updatedWithResponse);
 
                 await fetch(`http://localhost:8000/api/conversations/${newConversationData.id}/messages`, {
@@ -135,12 +135,17 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(assistantMessage),
                 });
+
                 setLoading(false); // Set loading to false
             }
         } catch (error) {
             console.error('Error sending message:', error);
             setLoading(false); // Ensure loading is turned off if there's an error
         }
+    };
+
+    const handleQuestionSelect = async (question: string) => {
+        await sendMessage(question);
     };
 
     const handleConversationSelect = (id: string) => {
