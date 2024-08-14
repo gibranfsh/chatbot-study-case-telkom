@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import ChatBox from '../components/ChatBox';
 import QuestionRecommendations from '../components/QuestionRecommendations';
 import Sidebar from '../components/Sidebar';

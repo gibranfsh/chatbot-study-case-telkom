@@ -1,6 +1,6 @@
 "use client";
 import { FC, useState, useEffect, useRef } from 'react';
-import { marked } from 'marked';
+import { renderText } from '@/utils/renderText';
 
 interface Message {
     sender: string;
@@ -22,14 +22,6 @@ const ChatBox: FC<ChatBoxProps> = ({ messages, onSendMessage, loading }) => {
             onSendMessage(message);
             setMessage('');
         }
-    };
-
-    const renderText = (content: string) => {
-        let html = marked(content);
-        if (typeof html === 'string') {
-            html = html.replace(/\n/g, '<br/>');
-        }
-        return { __html: html };
     };
 
     useEffect(() => {
