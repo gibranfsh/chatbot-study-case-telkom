@@ -7,5 +7,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/conversations', [ConversationController::class, 'index']);
 Route::post('/conversations', [ConversationController::class, 'store']);
 Route::get('/conversations/{id}', [ConversationController::class, 'show']);
-
-Route::post('/messages', [MessageController::class, 'store']);
+Route::post('/conversations/{conversation_id}/messages', [MessageController::class, 'store']);
