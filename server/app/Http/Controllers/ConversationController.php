@@ -9,7 +9,9 @@ class ConversationController extends Controller
 {
     public function index()
     {
-        return Conversation::with('messages')->get();
+        return Conversation::with(['messages' => function ($query) {
+            $query->orderBy('created_at', 'ASC');
+        }])->orderBy('created_at', 'ASC')->get();
     }
 
     public function store(Request $request)
@@ -20,6 +22,8 @@ class ConversationController extends Controller
 
     public function show($id)
     {
-        return Conversation::with('messages')->findOrFail($id);
+        return Conversation::with(['messages' => function ($query) {
+            $query->orderBy('created_at', 'ASC');
+        }])->findOrFail($id);
     }
 }
