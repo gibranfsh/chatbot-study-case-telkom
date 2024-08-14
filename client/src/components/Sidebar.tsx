@@ -2,7 +2,7 @@
 import { FC, useState } from 'react';
 
 interface Conversation {
-  id: number;
+  id: string;
   title: string;
   lastMessage: string;
   messages: { sender: string; content: string }[];
@@ -10,8 +10,8 @@ interface Conversation {
 
 interface SidebarProps {
   conversations: Conversation[];
-  onSelect: (id: number) => void;
-  selectedConversationId: number | null;
+  onSelect: (id: string) => void;
+  selectedConversationId: string | null;
   onAddConversation: () => void;
 }
 
