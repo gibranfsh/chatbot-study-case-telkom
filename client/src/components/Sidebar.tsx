@@ -1,10 +1,11 @@
 "use client";
+import { formatDate } from '@/utils/formatDate';
 import { FC, useState } from 'react';
 
 interface Conversation {
   id: string;
   title: string;
-  lastMessage: string;
+  created_at: string;
   messages: { sender: string; content: string }[];
 }
 
@@ -24,7 +25,7 @@ const Sidebar: FC<SidebarProps> = ({ conversations, onSelect, selectedConversati
 
   return (
     <div className={`transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 fixed inset-y-0 left-0 w-64 bg-white p-4 shadow-md z-50`}>
-      <button 
+      <button
         className="absolute top-4 right-[-40px] p-2 bg-blue-500 text-white rounded-full focus:outline-none"
         onClick={toggleSidebar}
       >
@@ -33,7 +34,10 @@ const Sidebar: FC<SidebarProps> = ({ conversations, onSelect, selectedConversati
       <h2 className="text-lg font-semibold mb-4">Conversation History</h2>
       <button
         className="mb-4 p-2 bg-blue-500 text-white rounded-lg w-full"
-        onClick={onAddConversation}
+        onClick={() => {
+          onAddConversation();
+          toggleSidebar();
+        }}
       >
         Add New Conversation
       </button>
@@ -42,10 +46,13 @@ const Sidebar: FC<SidebarProps> = ({ conversations, onSelect, selectedConversati
           <div
             key={conversation.id}
             className={`p-2 rounded-lg cursor-pointer transition ${selectedConversationId === conversation.id ? 'bg-blue-500 text-white' : 'bg-gray-100 text-black hover:bg-blue-500 hover:text-white'}`}
-            onClick={() => onSelect(conversation.id)}
+            onClick={() => {
+              onSelect(conversation.id);
+              toggleSidebar();
+            }}
           >
             <h1 className="font-semibold">{conversation.title}</h1>
-            <p className="text-sm truncate">{conversation.lastMessage}</p>
+            <p className="text-xs truncate">Created at: {formatDate(conversation.created_at)}</p>
           </div>
         ))}
       </div>
