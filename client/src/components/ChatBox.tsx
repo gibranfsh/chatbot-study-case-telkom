@@ -61,7 +61,7 @@ const ChatBox: FC<ChatBoxProps> = ({ messages, onSendMessage, loading }) => {
                         <p className="mt-2 text-gray-500">Assistant is thinking...</p>
                     </div>
                 )}
-                <div ref={chatEndRef} /> {/* Auto-scroll ref */}
+                <div ref={chatEndRef} />
             </div>
             <div className="flex mt-4">
                 <input

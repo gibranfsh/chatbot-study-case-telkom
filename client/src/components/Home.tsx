@@ -39,7 +39,6 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
             const userMessage: Message = { sender: 'user', content: message };
 
             if (selectedConversationId) {
-                console.log('Selected conversation:', selectedConversationId);
                 const updatedConversations = conversations.map(conv =>
                     conv.id === selectedConversationId
                         ? { ...conv, messages: [...conv.messages, userMessage] }
@@ -47,7 +46,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                 );
 
                 setConversations(updatedConversations);
-                setLoading(true); // Set loading to true
+                setLoading(true);
 
                 await fetch(`http://localhost:8000/api/conversations/${selectedConversationId}/messages`, {
                     method: 'POST',
@@ -82,7 +81,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                     body: JSON.stringify(assistantMessage),
                 });
 
-                setLoading(false); // Set loading to false
+                setLoading(false);
             } else {
                 const newConversationResponse = await fetch('http://localhost:8000/api/conversations', {
                     method: 'POST',
@@ -101,7 +100,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
 
                 handleConversationSelect(newConversationData.id);
                 setConversations(updatedConversations);
-                setLoading(true); // Set loading to true
+                setLoading(true);
 
                 await fetch(`http://localhost:8000/api/conversations/${newConversationData.id}/messages`, {
                     method: 'POST',
@@ -136,11 +135,11 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                     body: JSON.stringify(assistantMessage),
                 });
 
-                setLoading(false); // Set loading to false
+                setLoading(false);
             }
         } catch (error) {
             console.error('Error sending message:', error);
-            setLoading(false); // Ensure loading is turned off if there's an error
+            setLoading(false);
         }
     };
 
@@ -165,7 +164,7 @@ const Home = ({ conversations: propConversations }: { conversations: Conversatio
                     <ChatBox
                         messages={selectedConversation ? selectedConversation.messages : []}
                         onSendMessage={sendMessage}
-                        loading={loading} // Pass loading state to ChatBox
+                        loading={loading}
                     />
                     {!selectedConversation && (
                         <QuestionRecommendations
