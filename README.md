@@ -6,7 +6,7 @@ This project, **ChatEase**, is a web-based intelligent conversational assistant 
 
 ## Features Implemented
 
-- Real-time chatbot interface using llama3 (8b) model.
+- Real-time chatbot using llama3 (8b) model.
 - Conversation and message history.
 - Message recommendations to start a conversation.
 - User-friendly interface with a clean and responsive design.
