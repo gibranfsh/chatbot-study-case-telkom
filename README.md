@@ -91,15 +91,15 @@ This project, **ChatEase**, is a web-based intelligent conversational assistant 
 
 ### Default Page
 
-<img src="./docs/img-for-readme/chat-1.jpg" alt="chat-1-page">
+<img src="./docs/images-for-readme/chat-1.jpg" alt="chat-1-page">
 
 ### Conversation Selected Page
 
-<img src="./docs/img-for-readme/chat-2.jpg" alt="chat-2-page">
+<img src="./docs/images-for-readme/chat-2.jpg" alt="chat-2-page">
 
 ### Ask Assistant Process Page
 
-<img src="./docs/img-for-readme/chat-3.jpg" alt="chat-3-page">
+<img src="./docs/images-for-readme/chat-3.jpg" alt="chat-3-page">
 
 ## Demo Video Recording
 
