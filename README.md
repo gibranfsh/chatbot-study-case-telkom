@@ -103,7 +103,7 @@ This project, **ChatEase**, is a web-based intelligent conversational assistant 
 
 ## Demo Video Recording
 
-- Still making...
+  [Google Drive](https://drive.google.com/file/d/1gkpTcSuWqUyzV4yX6F6_cM1vsJc3TQ3h/view?usp=sharing)
 
 ## How to Contribute
 
