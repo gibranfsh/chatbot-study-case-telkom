@@ -44,17 +44,17 @@ This project, **ChatEase**, is a web-based intelligent conversational assistant 
 
 ## Branching
 
--   `main` is the main branch that will be used for deployment (production)
+- `main` is the main branch that will be used for deployment (production)
 
 ## Commit Message Convention (Semantic)
 
--   `feat`: (new feature for the user, not a new feature for build script)
--   `fix`: (bug fix for the user, not a fix to a build script)
--   `docs`: (changes to the documentation)
--   `style`: (formatting, missing semi colons, etc; no production code change)
--   `refactor`: (refactoring production code, eg. renaming a variable)
--   `test`: (adding missing tests, refactoring tests; no production code change)
--   `chore`: (updating grunt tasks etc; no production code change)
+- `feat`: (new feature for the user, not a new feature for build script)
+- `fix`: (bug fix for the user, not a fix to a build script)
+- `docs`: (changes to the documentation)
+- `style`: (formatting, missing semi colons, etc; no production code change)
+- `refactor`: (refactoring production code, eg. renaming a variable)
+- `test`: (adding missing tests, refactoring tests; no production code change)
+- `chore`: (updating grunt tasks etc; no production code change)
 
 ## How to Run Locally
 
@@ -103,7 +103,7 @@ This project, **ChatEase**, is a web-based intelligent conversational assistant 
 
 ## Demo Video Recording
 
-  [Google Drive](https://drive.google.com/file/d/1gkpTcSuWqUyzV4yX6F6_cM1vsJc3TQ3h/view?usp=sharing)
+[Google Drive](https://drive.google.com/file/d/1gkpTcSuWqUyzV4yX6F6_cM1vsJc3TQ3h/view?usp=sharing)
 
 ## How to Contribute
 
@@ -124,4 +124,4 @@ For this project, I am prioritizing the role of Backend Engineer. However, I am 
 
 ## Author
 
--   Gibran Fasha Ghazanfar - [LinkedIn](https://www.linkedin.com/in/gibran-fasha-ghazanfar-22035319b/)
+- Gibran Fasha Ghazanfar - [LinkedIn](https://www.linkedin.com/in/gibran-fasha-ghazanfar-22035319b/)
