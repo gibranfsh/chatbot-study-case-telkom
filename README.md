@@ -4,6 +4,13 @@
 
 This project, **ChatEase**, is a web-based intelligent conversational assistant designed to provide seamless interaction with users. The assistant leverages the power of Ollama with the Meta Llama3 model to generate accurate and context-aware responses. This project was developed as part of the **Study Case MSIB Batch 7 - Telkom Indonesia**.
 
+## Features Implemented
+
+- Real-time chatbot interface using llama3 (8b) model.
+- Conversation and message history.
+- Message recommendations to start a conversation.
+- User-friendly interface with a clean and responsive design.
+
 ## Prerequisites
 
 - [Composer](https://getcomposer.org/) (>= v2)
