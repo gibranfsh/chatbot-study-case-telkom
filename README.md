@@ -118,6 +118,10 @@ This project, **ChatEase**, is a web-based intelligent conversational assistant 
 
 Feel free to contribute to this project by fixing existing bugs, adding new features, or improving documentation. Happy coding 🎉!
 
+## Note
+
+For this project, I am prioritizing the role of Backend Engineer. However, I am also very interested in and excited about Fullstack Engineering. If possible, I would love to work on both frontend and backend tasks to leverage my skills across the entire stack.
+
 ## Author
 
 -   Gibran Fasha Ghazanfar - [LinkedIn](https://www.linkedin.com/in/gibran-fasha-ghazanfar-22035319b/)
